@@ -1,0 +1,74 @@
+.about-project {
+    padding: 110px 70px 0;
+    color: #fff;
+}
+/* 
+.about__title {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.88px;
+    margin: 0;
+    padding-bottom: 23px;
+    border-bottom: solid #DADADA 1px;
+} */
+
+.about-project__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
+}
+
+.about-project__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.21;
+    letter-spacing: -0.8px;
+    margin: 0;
+    padding-top: 70px;
+}
+
+.about-project__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin: 0;
+    padding-top: 26px;
+}
+
+.about-project__tasks {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.about-project__task-time {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 110px 0 0;
+    min-height: 36px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-project__task-time-first-stage {
+    background-color: #3DDC84;
+    color: #000;
+}
+
+.about-project__task-time-second-stage {
+    background-color: #303030;
+}
+
+.about-project__task {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #8B8B8B;
+    margin: 0;
+    padding-top: 14px;
+}

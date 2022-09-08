@@ -1,0 +1,31 @@
+.navtab__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.navtab__nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 36px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+    background-color: #303030;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: opacity .3s;
+}
+
+.navtab__nav-link:first-child {
+    margin-left: 0;
+}
+
+.navtab__nav-link:hover {
+    opacity: .6;
+}
