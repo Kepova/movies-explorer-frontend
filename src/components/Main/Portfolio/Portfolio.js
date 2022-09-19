@@ -7,19 +7,19 @@ function Portfolio() {
         <section className='portfolio'>
             <h4 className='portfolio__title'>Портфолио</h4>
             <ul className='portfolio__links'>
-                <li className='portfolio__links-item'>
+                <li className='link portfolio__links-item'>
                     <a href='https://github.com/Kepova' target="_blank" rel="noopener noreferrer" className='portfolio__link'>Статичный сайт</a>
                     <span className='portfolio__link-span-icon'>
                         <img src={linkIcon} alt='Иконка для ссылки' className='portfolio__link-icon' />
                     </span>
                 </li>
-                <li className='portfolio__links-item'>
+                <li className='link portfolio__links-item'>
                     <a href='https://github.com/Kepova' target="_blank" rel="noopener noreferrer" className='portfolio__link'>Адаптивный сайт</a>
                     <span className='portfolio__link-span-icon'>
                         <img src={linkIcon} alt='Иконка для ссылки' className='portfolio__link-icon' />
                     </span>
                 </li>
-                <li className='portfolio__links-item'>
+                <li className='link portfolio__links-item'>
                     <a href='https://github.com/Kepova' target="_blank" rel="noopener noreferrer" className='portfolio__link'>Одностраничное приложение</a>
                     <span className='portfolio__link-span-icon'>
                         <img src={linkIcon} alt='Иконка для ссылки' className='portfolio__link-icon' />

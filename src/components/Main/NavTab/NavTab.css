@@ -1,4 +1,6 @@
 .navtab__nav {
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,13 +21,27 @@
     border-radius: 10px;
     text-decoration: none;
     margin-left: 10px;
-    transition: opacity .3s;
 }
 
 .navtab__nav-link:first-child {
     margin-left: 0;
 }
 
-.navtab__nav-link:hover {
-    opacity: .6;
+@media screen and (max-width: 380px) {
+    .navtab__nav-link {
+        max-width: 86px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navtab__nav {
+        padding: 0 31px 17px;
+    }
+
+    .navtab__nav-link {
+        font-size: 10px;
+        line-height: 1.6;
+        height: 26px;
+        margin-left: 6px;
+    }
 }

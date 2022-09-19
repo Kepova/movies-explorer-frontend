@@ -1,31 +1,30 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import Navigation from '../Navigation/Navigation';
 
 function Header({ loggedIn }) {
-    // loggedIn = true;
     return (
-        <header className="header">
-            <Link to='/'><img src={logo} alt="Логотип" className="logo" /></Link>
-            <Switch>
-                <Route exact path="/">
-                    <nav className="header__nav">
-                        {loggedIn ?
-                            <>
-                                <Link to='/movies' className='header__link header__link-auth'>Фильмы</Link>
-                                <Link to='/saved-moviesn' className='header__link header__link-auth'>Сохраненные фильмы</Link>
-                                <Link to='/profile' className='header__link header__link-account'>Аккаунт</Link>
-                            </>
-                            :
-                            <>
-                                <Link to='/sign-up' className='header__link header__link-register'>Регистрация</Link>
-                                <Link to='/sign-in' className='header__link header__link-login'>Войти</Link>
-                            </>
-                        }
-                    </nav>
-                </Route>
-            </Switch>
-        </header>
+        <Switch>
+            <Route path='/signup'>
+                <header className="header header__authorization">
+                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
+                    <h1 className='title__form header__title-register'>Добро пожаловать!</h1>
+                </header>
+            </Route>
+            <Route path='/signin'>
+                <header className="header header__authorization">
+                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
+                    <h1 className='title__form header__title-register'>Рады видеть!</h1>
+                </header>
+            </Route>
+            <Route exact path={['/', '/movies', '/saved-movies', '/profile']}>
+                <header className="header">
+                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
+                    <Navigation loggedIn={loggedIn} />
+                </header>
+            </Route>
+        </Switch>
     )
 };
 

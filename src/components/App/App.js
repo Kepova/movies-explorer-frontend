@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -7,11 +8,15 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
+
   return (
     <div className="page">
-      <Header />
+      <Header loggedIn={loggedIn} />
       <Switch>
         <Route exact path="/">
           <Main />
@@ -30,6 +35,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <Register />
+        </Route>
+        <Route path="/nodfound">
+          <NotFoundPage />
         </Route>
       </Switch>
       <Footer />

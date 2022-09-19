@@ -1,77 +1,45 @@
 .header {
     box-sizing: border-box;
     min-height: 74px;
-    padding: 0 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.header__authorization {
+    min-width: 396px;
+    padding: 20px 0 40px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    flex: 1;
+}
+
+.header__title-register {
+    padding-top: 40px;
+}
+
 .logo {
     width: 38px;
     height: 38px;
-    transition: opacity .3s;
 }
 
-.logo:hover {
-    opacity: .6;
+@media screen and (max-width: 768px) {
+    .header__authorization {
+        padding-top: 20px;
+        max-height: 379px;
+        min-width: 51vw;
+    }
 }
 
-.header__nav {
-    display: flex;
-    align-items: center;
-}
+@media screen and (max-width: 320px) {
+    .header__authorization {
+        padding: 15px 0 10px;
+        max-height: 253px;
+        align-items: center;
+        justify-content: center;
+        flex: 3;
+    }
 
-.header__link {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.3;
-    color: #fff;
-    text-decoration: none;
-    transition: opacity .3s;
-}
-
-.header__link:hover {
-    opacity: .6;
-}
-
-.header__link-auth {
-    padding-left: 20px;
-}
-
-.header__link-auth:first-child {
-    padding-left: 0;  
-}
-
-.header__link-register {
-    font-size: 12px;
-}
-
-.header__link-login {
-    margin-left: 30px;
-    width: 76px;
-    height: 32px;
-    font-size: 12px;
-    color: #000;
-    border-radius: 3px;
-    background-color: #3DDC84;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header__link-account {
-    padding-left: 50px;
-    display: inline-flex;
-    align-items: center;
-}
-
-.header__link-account::after {
-    content: '';
-    display: inline-block;
-    margin-left: 13px;
-    border-radius: 6px;
-    background: url("../../images/header__nav-icon.svg") #313131 center 10.38px no-repeat;
-    width: 30px;
-    height: 30px;
 }
