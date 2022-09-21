@@ -18,7 +18,7 @@ function MoviesCardList({ isNextMovie }) {
             </div>
             <div className='movie-card-list__open-next-movies'>
                 {isNextMovie &&
-                    <button className='movie-card-list__open-next-movies-button'>Ещё</button>
+                    <button type="button" className='movie-card-list__open-next-movies-button'>Ещё</button>
                 }
             </div>
         </section>

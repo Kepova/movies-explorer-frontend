@@ -47,6 +47,11 @@
     animation: background-opacity .8s;
 }
 
+.filter-checkbox__checkbox:focus+.filter-checkbox__checkbox-decoration {
+    border-radius: 50px;
+    outline: auto;
+}
+
 @media screen and (max-width: 768px) {
     .filter-checkbox {
         padding: 38px 0 0;

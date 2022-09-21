@@ -9,8 +9,8 @@ function Profile() {
                 <li className='profile__info-item profile__info-name'><span className='profile__info-description'>Имя</span>Виталий</li>
                 <li className='profile__info-item profile__info-email'><span className='profile__info-description'>E-mail</span>pochta@yandex.ru</li>
             </ul>
-            <button className='profile__button profile__button-edit'>Редактировать</button>
-            <button className='profile__button profile__button-out-login'>Выйти из аккаунта</button>
+            <button type="button" className='profile__button profile__button-edit'>Редактировать</button>
+            <button type="button" className='profile__button profile__button-out-login'>Выйти из аккаунта</button>
         </div>
     )
 };

@@ -10,7 +10,7 @@ function MoviesCard({ movie }) {
                 <p className="movie-card__duration">{movie.duration} минут</p>
             </div>
             <img className="movie-card__image" src={`https://api.nomoreparties.co/${movie.image.url}`} alt={movie.nameRU} />
-            <button className={`link movie-card__button-save ${isLiked && 'movie-card__button-save_active'} ${isDelete && 'movie-card__button-save_delete'}`}>{isDelete ? '' : 'Сохранить'}</button>
+            <button type="button" className={`link movie-card__button-save ${isLiked && 'movie-card__button-save_active'} ${isDelete && 'movie-card__button-save_delete'}`}>{isDelete ? '' : 'Сохранить'}</button>
         </div>
     )
 }

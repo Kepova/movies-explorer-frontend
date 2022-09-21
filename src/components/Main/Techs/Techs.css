@@ -41,7 +41,7 @@
 }
 
 .techs__project-tech {
-    width: 100%;
+    width: 90px;
     padding: 21px 0;
     background: #303030;
     border-radius: 10px;
@@ -92,15 +92,19 @@
         margin: 83px 0 0;
     }
 
+    .techs__project-tech {
+        width: 84px;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
     .techs__project-techs {
         padding: 0 53px;
         margin: 50px 0 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(84px, max-content));
         gap: 10px;
+        justify-items: center;
     }
 
     .techs__project-tech {
