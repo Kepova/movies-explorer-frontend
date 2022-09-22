@@ -1,0 +1,129 @@
+.about-project {
+    padding-top: 110px;
+    color: #fff;
+}
+
+.about-project__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
+}
+
+.about-project__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.21;
+    letter-spacing: -0.8px;
+    margin: 0;
+    padding-top: 70px;
+}
+
+.about-project__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin: 0;
+    padding-top: 26px;
+}
+
+.about-project__tasks {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.about-project__task-time {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 110px 0 0;
+    min-height: 36px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-project__task-time-first-stage {
+    background-color: #3DDC84;
+    color: #000;
+}
+
+.about-project__task-time-second-stage {
+    background-color: #303030;
+}
+
+.about-project__task {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #8B8B8B;
+    margin: 0;
+    padding-top: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-project {
+        padding: 90px 20px 0;
+    }
+
+    .about-project__container {
+        gap: 0 30px;
+    }
+
+    .about-project__description {
+        padding-top: 22px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .about-project__task-time {
+        margin-top: 93px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .about-project__tasks {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .about-project__container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-project__subtitle {
+        padding-top: 55px;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+    .about-project__description {
+        font-size: 11px;
+        line-height: 1.45;
+        padding-top: 19px;
+    }
+
+    .about-project__description:first-of-type {
+        grid-row-start: 2;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-project {
+        padding: 70px 4px 0;
+    }
+
+    .about-project__task-time {
+        margin-top: 60px;
+        font-size: 11px;
+        min-height: 35px;
+    }
+
+    .about-project__task {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.6;
+        padding-top: 10px;
+    }
+}

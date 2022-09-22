@@ -1,0 +1,139 @@
+.techs {
+    color: #fff;
+    padding: 100px 70px;
+    margin: 110px -70px 0;
+    width: auto;
+    background-color: #272727;
+}
+
+.techs__container-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techs__subtitle {
+    margin: 90px 0 0;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+.techs__description {
+    margin: 25px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.8px;
+    max-width: 460px;
+    text-align: center;
+}
+
+.techs__project-techs {
+    margin: 100px 20% 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.techs__project-tech {
+    width: 90px;
+    padding: 21px 0;
+    background: #303030;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+}
+
+.techs__project-tech:first-child {
+    margin-left: 0;
+}
+
+@media screen and (max-width: 1090px) {
+    .techs__project-techs {
+        margin: 83px 10% 0;
+    }
+
+    .techs__project-tech {
+        font-size: 12px;
+        letter-spacing: -0.48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .techs {
+        margin: 90px -30px 0;
+        padding: 90px 50px;
+    }
+
+    .techs__subtitle {
+        margin-top: 80px;
+    }
+
+    .techs__description {
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: -0.48px;
+        margin-top: 22px;
+    }
+
+    .techs__project-techs {
+        padding: 0 10px;
+        margin: 83px 0 0;
+    }
+
+    .techs__project-tech {
+        width: 84px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .techs__project-techs {
+        padding: 0 53px;
+        margin: 50px 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(84px, max-content));
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .techs__project-tech {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .techs {
+        margin: 70px -14px 0;
+        padding: 70px 18px;
+    }
+
+    .techs__title {
+        border-bottom: 1px solid #000;
+        padding: 0 4px 28px;
+    }
+
+    .techs__subtitle {
+        margin-top: 60px;
+        font-size: 30px;
+        line-height: 1.2;
+        letter-spacing: -1.2px;
+    }
+
+    .techs__description {
+        font-size: 11px;
+        line-height: 1.45;
+        letter-spacing: -0.44px;
+        margin-top: 24px;
+    }
+}

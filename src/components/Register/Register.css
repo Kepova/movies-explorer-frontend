@@ -1,0 +1,23 @@
+.register__go-to-another {
+    margin: 16px 0 0;
+    color: #8B8B8B;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    display: inherit;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.register__go-to-another__link {
+    color: #4285F4;
+    padding-left: 6px;
+}
+
+@media screen and (max-width: 320px) {
+    .register__go-to-another {
+        font-size: 12px;
+    }
+}

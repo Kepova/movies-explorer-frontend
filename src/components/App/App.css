@@ -1,0 +1,60 @@
+.page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0 70px;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.21;
+  letter-spacing: -0.88px;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 24px;
+  border-bottom: solid #DADADA 1px;
+}
+
+.title__form {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.link {
+  text-decoration: none;
+  transition: opacity .3s;
+}
+
+.link:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page {
+    padding: 0 14px;
+  }
+
+  .title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}
