@@ -38,28 +38,22 @@
     margin-bottom: 17px;
 }
 
-.profile__button {
+.profile__button-edit {
     font-size: 13px;
     line-height: 1.2;
     border: none;
     background: none;
     padding: 0;
-}
-
-.profile__button:hover {
-    opacity: .6;
-    cursor: pointer;
-}
-
-.profile__button-edit {
     font-weight: 400;
     color: #fff;
     padding-bottom: 17px;
 }
 
-.profile__button-out-login {
+.profile__link-out-login {
     font-weight: 500;
     color: #EE3465;
+    font-size: 13px;
+    line-height: 1.2;
 }
 
 @media screen and (max-width: 768px) {

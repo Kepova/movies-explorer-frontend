@@ -41,6 +41,23 @@
     line-height: 1.2;
 }
 
+.form-auth__input-error {
+    color: #EE3465;
+}
+
+.form-auth__message-error {
+    visibility: hidden;
+    height: 12px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #EE3465;
+}
+
+.form__auth__message-error-visible {
+    visibility: visible;
+}
+
 .form-auth__button-submit {
     padding: 0;
     border: none;
