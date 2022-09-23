@@ -35,14 +35,15 @@
     margin: 100px 20% 0;
     padding: 0;
     list-style: none;
-    display: flex;
+    display: grid;
     justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(7, minmax(max-content, 90px));
 }
 
 .techs__project-tech {
     width: 90px;
-    padding: 21px 0;
+    padding: 21px 14px;
+    box-sizing: border-box;
     background: #303030;
     border-radius: 10px;
     display: flex;
@@ -61,7 +62,7 @@
 
 @media screen and (max-width: 1090px) {
     .techs__project-techs {
-        margin: 83px 10% 0;
+        margin: 83px auto 0;
     }
 
     .techs__project-tech {
@@ -90,6 +91,7 @@
     .techs__project-techs {
         padding: 0 10px;
         margin: 83px 0 0;
+        grid-template-columns: repeat(7, minmax(max-content, 84px));
     }
 
     .techs__project-tech {
@@ -97,7 +99,7 @@
     }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 700px) {
     .techs__project-techs {
         padding: 0 53px;
         margin: 50px 0 0;
