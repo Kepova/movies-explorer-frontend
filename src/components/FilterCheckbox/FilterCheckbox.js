@@ -4,10 +4,10 @@ function FilterCheckbox({ onChangeFilterCheckbox, isFilterCheckbox }) {
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
-        onChangeFilterCheckbox(isChecked);
         if (isFilterCheckbox) {
-            setIsChecked(isFilterCheckbox);
+            return setIsChecked(isFilterCheckbox);
         }
+        onChangeFilterCheckbox(isChecked);
     }, []);
 
     const handleInputChange = useCallback(

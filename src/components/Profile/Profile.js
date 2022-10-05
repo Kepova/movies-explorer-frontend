@@ -3,7 +3,7 @@ import isEmail from 'validator/lib/isEmail';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom';
 
-function Profile({ onOutLogin, onProfileUpdate }) {
+function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,32 +19,33 @@ function Profile({ onOutLogin, onProfileUpdate }) {
 
     const changeNameProfile = useCallback((e) => {
         setName(e.target.value);
-    }, [name]);
+    }, [setName]);
 
     const changeEmailProfile = useCallback((e) => {
         setEmail(e.target.value);
-    }, [email]);
+    }, [setEmail]);
 
     useEffect(
         function validateInputs() {
-            const isUserNameFilled = name.length > 2 && name.length < 30;
-            const isUserNameValid = isUserNameFilled;
+            if (name || email) {
+                const isUserNameFilled = name.length > 2 && name.length < 30;
+                const isUserNameValid = isUserNameFilled;
 
-            const isUserEmailFilled = isEmail(email);
-            const isUserEmailValid = isUserEmailFilled;
+                const isUserEmailFilled = isEmail(email);
+                const isUserEmailValid = isUserEmailFilled;
 
-            setFormValidity((prevState) => ({
-                nameValid: isUserNameValid,
-                emailValid: isUserEmailValid,
-            }));
-
+                setFormValidity((prevState) => ({
+                    nameValid: isUserNameValid,
+                    emailValid: isUserEmailValid,
+                }));
+            }
         }, [name, email]
     );
 
     const handleProfileUpdate = (e) => {
         e.preventDefault();
         console.log(name, email)
-        onProfileUpdate({name: name, email: email});
+        onProfileUpdate({ name: name, email: email });
     };
 
     const { nameValid, emailValid } = formValidity;
@@ -64,6 +65,7 @@ function Profile({ onOutLogin, onProfileUpdate }) {
                     <span className='profile__info-input-decoration'></span>
                 </label>
                 <div className={`message-error profile__message-error ${!profileFormValidity && 'message-error-visible'}`}>Что-то пошло не так...</div>
+                <div className={`${isUpdateDone && 'profile__message-update-done-visible'} profile__message-update-done`}>профиль успешно обновлен</div>
             </div>
             <button type="submit" className='link profile__button-edit' disabled={buttonDisabled}>{buttonDisabled ? 'Редактировать' : 'Сохранить'}</button>
             <Link to='/signin' className='link profile__link-out-login' onClick={onOutLogin}>Выйти из аккаунта</Link>

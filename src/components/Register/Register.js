@@ -10,9 +10,9 @@ function Register({ onRegister, isErrorResponse }) {
         userPassword: '',
     });
     const [formValidity, setFormValidity] = useState({
-        userNameValid: false,
-        userEmailValid: false,
-        userPasswordValid: false,
+        userNameValid: true,
+        userEmailValid: true,
+        userPasswordValid: true,
     });
 
     const handleInputChange = useCallback(
@@ -20,7 +20,7 @@ function Register({ onRegister, isErrorResponse }) {
             const { name, value } = e.target;
             setFormUserData((prevState) => ({ ...prevState, [name]: value }));
         },
-        [formUserData]
+        [setFormUserData]
     );
 
     useEffect(

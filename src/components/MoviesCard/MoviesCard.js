@@ -8,7 +8,6 @@ function MoviesCard({ movie, moviesSaved, onSaveMovieClick, isDelete, onDeleteCl
 
     const handleDeleteClick = () => {
         onDeleteClick(movie);
-        console.log(movie);
     }
 
     const isSavedMovie = moviesSaved.some(i => i.movieId === movie.movieId);

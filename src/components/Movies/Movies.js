@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import { filteredMovies } from '../../utils/filteredMovies';
@@ -28,12 +28,12 @@ function Movies({
         }
     }, [isFilterCheckbox, movies]);
 
-    const handleMoviesSearch = (searchString) => {
+    const handleMoviesSearch = () => {
         setIsPreloader(true);
-        if (movies.length < 1) {
+        if (notFirstSearch) {
             return handleSaveAllMovies();
-        };
-        const moviesFiltered = filteredMovies({ searchString, movies, isFilterCheckbox });
+        }
+        const moviesFiltered = filteredMovies({ searchString: searchStringStorage, movies, isFilterCheckbox });
         setIsNotFoundMovies(moviesFiltered.length < 1);
         setMoviesElemenets(moviesFiltered);
         setIsPreloader(false);

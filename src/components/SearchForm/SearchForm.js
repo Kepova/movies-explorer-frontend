@@ -17,6 +17,7 @@ function SearchForm({ isFilterCheckbox, onChangeFilterCheckbox, onSearshStringCh
         (e) => {
             const { value } = e.target;
             setSearchString(value);
+            onSearshStringChange(value);
         },
         [searchString, searchStringStorage]
     );
@@ -34,7 +35,6 @@ function SearchForm({ isFilterCheckbox, onChangeFilterCheckbox, onSearshStringCh
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSearshStringChange(searchString);
         onMoviesSearch(searchString);
     }
 

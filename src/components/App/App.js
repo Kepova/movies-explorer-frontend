@@ -25,24 +25,40 @@ function App() {
   const [isErrorRespose, setIsErrorResponse] = useState(null);
   const [isErrorResposeRegister, setIsErrorResponseRegister] = useState(null);
   const [moviesSaved, setMoviesSaved] = useState([]);
+  const [isUpdateDone, setIsUpdateDone] = useState(false);
 
   const history = useHistory();
-  // получить данные пользователя и сохраненные фильмы
+
+  // Проверка авторизации
   useEffect(() => {
-    Promise.all([getUser(), getSavedMovies()])
-      .then(([userData, dataSavedMovies]) => {
+    getUser()
+      .then((userData) => {
         if (userData) {
           setLoggedIn(true);
         }
-        setCurrentUser(userData);
-        setMoviesSaved(dataSavedMovies.filter(m => m.owner === userData._id));
-        history.push('/movies');
-
       })
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [loggedIn, currentUser]);
+
+  // получить данные пользователя и сохраненные фильмы
+  useEffect(() => {
+    if (loggedIn) {
+      Promise.all([getUser(), getSavedMovies()])
+        .then(([userData, dataSavedMovies]) => {
+          console.log(loggedIn, currentUser)
+          if (userData) {
+            setCurrentUser(userData);
+            setMoviesSaved(dataSavedMovies.filter(m => m.owner === userData._id));
+            // history.push('/movies');
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
 
   // отрисовка страницы фильмы
   useEffect(() => {
@@ -55,11 +71,6 @@ function App() {
       setIsFilterCheckbox(JSON.parse(localStorage.searchFilterCheckbox));
     }
   }, []);
-
-  // добавить в хранилище сохраненные фильмы
-  useEffect(() => {
-    localStorage.setItem('moviesSaved', JSON.stringify(moviesSaved));
-  }, [moviesSaved]);
 
   // обновить значение фильтра короткометражек
   const handleFilterCheckbox = (isChecked) => {
@@ -164,6 +175,12 @@ function App() {
       .then((message) => {
         console.log(message);
         setLoggedIn(false);
+        setCurrentUser({});
+        setMoviesSaved([]);
+        localStorage.removeItem('searchMoviesData');
+        localStorage.removeItem('searchString');
+        localStorage.removeItem('searchFilterCheckbox');
+        history.push('/');
       })
       .catch((err => {
         console.log(err);
@@ -175,10 +192,15 @@ function App() {
     updateUser({ name, email })
       .then((newUserData) => {
         setCurrentUser(newUserData);
+        setIsUpdateDone(true);
       })
       .catch((err => {
         console.log(err);
+        setIsUpdateDone(false);
       }))
+      .finally(setTimeout(() => {
+        setIsUpdateDone(false);
+      }, 8000))
   };
 
   return (
@@ -190,7 +212,7 @@ function App() {
             <Main />
           </Route>
           <ProtectedRoute
-            exact path="/movies"
+            path="/movies"
             loggedIn={loggedIn}
             component={Movies}
             movies={allMovies}
@@ -206,7 +228,7 @@ function App() {
             onDeleteClick={handleDeleteSavedMovie}
           />
           <ProtectedRoute
-            exact path="/saved-movies"
+            path="/saved-movies"
             loggedIn={loggedIn}
             component={SavedMovies}
             movies={moviesSaved}
@@ -216,11 +238,12 @@ function App() {
             isErrorSearchMovies={isErrorSearchMovies}
           />
           <ProtectedRoute
-            exact path="/profile"
+            path="/profile"
             loggedIn={loggedIn}
             component={Profile}
             onOutLogin={handleSignOut}
             onProfileUpdate={handleProfileUpdate}
+            isUpdateDone={isUpdateDone}
           />
           <Route path="/signin">
             <Login onLogin={handleLogin} isErrorRespose={isErrorRespose} />
