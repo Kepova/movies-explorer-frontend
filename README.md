@@ -12,7 +12,7 @@
 **Ссылка на проект:**
 - ссылка на фронтенд проекта: https://kepova.nomoredomains.sbsgithub.com,
 - бэкенд проекта находится [тут](https://github.com/Kepova/movies-explorer-api),
-- [Ссылка на макет](https://disk.yandex.ru/d/Js1PWc0dSh-uyQ).
+- [ссылка на макет](https://disk.yandex.ru/d/Js1PWc0dSh-uyQ).
 
 ![Movies](https://user-images.githubusercontent.com/73786589/198556075-3a7451bc-5895-41b7-918b-06253c197a0d.png)
 
