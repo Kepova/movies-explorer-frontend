@@ -1,5 +1,4 @@
 .movie-card {
-    box-sizing: border-box;
     background-color: #222;
     border-radius: 6px;
     padding: 18px 0 18px;
@@ -21,6 +20,8 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 1.2;
+    text-align: left;
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
 }
 
 .movie-card__duration {

@@ -13,29 +13,67 @@
 
 .profile__info {
     list-style: none;
-    padding: 0 0 220px;
-    margin: 0;
+    margin: 0 0 auto;
     display: inline-block;
     min-width: 410px;
     text-align: center;
 }
 
-.profile__info-item {
+.profile__info-label {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 1.2;
-}
-
-.profile__info-description {
     font-weight: 500;
+    width: 100%;
+    position: relative;
 }
 
-.profile__info-item:first-child {
+.profile__info-label:first-child {
     border-bottom: solid 1px #424242;
     padding-bottom: 17px;
     margin-bottom: 17px;
+}
+
+.profile__info-input {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0 0 0 30px;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.profile__info-input:focus+.profile__info-input-decoration {
+    position: absolute;
+    left: 0;
+    border: solid 1px rgba(170, 170, 170, .2);
+    width: 100%;
+    height: 22px;
+    box-sizing: border-box;
+}
+
+.profile__input-error {
+    color: #EE3465;
+}
+
+.profile__message-error {
+    padding-top: 25px;
+}
+
+.profile__message-update-done {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    transition: opacity .3s;
+    opacity: 0;
+}
+
+.profile__message-update-done-visible {
+    opacity: 1;
 }
 
 .profile__button-edit {
@@ -49,6 +87,11 @@
     padding-bottom: 17px;
 }
 
+.profile__button-edit:disabled {
+    cursor: auto;
+    opacity: .6;
+}
+
 .profile__link-out-login {
     font-weight: 500;
     color: #EE3465;
@@ -59,13 +102,14 @@
 @media screen and (max-width: 768px) {
 
     .profile__title {
-        padding: 236px 0 96px;
+        padding: 60px 0 96px;
+        margin-top: auto;
     }
 
     .profile__info {
-        padding-bottom: 210px;
         min-width: 54vw;
     }
+
 }
 
 @media screen and (max-width: 320px) {
@@ -74,10 +118,11 @@
     }
 
     .profile__title {
-        padding: 70px 0 80px;
+        padding: 30px 0 80px;
     }
 
     .profile__info {
         min-width: 81vw;
     }
+
 }
