@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, Redirect, useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(undefined);
   const [allMovies, setAllMovies] = useState([]);
   const [searchStringStorage, setSearchStringStorage] = useState('');
   const [isFilterCheckbox, setIsFilterCheckbox] = useState(false);
@@ -27,40 +27,10 @@ function App() {
   const [moviesSaved, setMoviesSaved] = useState([]);
   const [isUpdateDone, setIsUpdateDone] = useState(false);
 
+  const location = useLocation();
   const history = useHistory();
 
-  // Проверка авторизации
-  useEffect(() => {
-    getUser()
-      .then((userData) => {
-        if (userData) {
-          setLoggedIn(true);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, [loggedIn, currentUser]);
-
-  // получить данные пользователя и сохраненные фильмы
-  useEffect(() => {
-    if (loggedIn) {
-      Promise.all([getUser(), getSavedMovies()])
-        .then(([userData, dataSavedMovies]) => {
-          console.log(loggedIn, currentUser)
-          if (userData) {
-            setCurrentUser(userData);
-            setMoviesSaved(dataSavedMovies.filter(m => m.owner === userData._id));
-            // history.push('/movies');
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  }, [loggedIn]);
-
-  // отрисовка страницы фильмы
+  // получить данные из локального хранилища для страницы фильмы
   useEffect(() => {
     if (!localStorage.searchMoviesData) {
       setNotFirstSearch(true);
@@ -71,6 +41,36 @@ function App() {
       setIsFilterCheckbox(JSON.parse(localStorage.searchFilterCheckbox));
     }
   }, []);
+
+  // Проверка авторизации
+  useEffect(() => {
+    getUser()
+      .then((userData) => {
+        if (userData) {
+          setLoggedIn(true);
+          history.push(location.pathname);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, [loggedIn]);
+
+  // получить данные пользователя и сохраненные фильмы
+  useEffect(() => {
+    if (loggedIn) {
+      Promise.all([getUser(), getSavedMovies()])
+        .then(([userData, dataSavedMovies]) => {
+          if (userData) {
+            setCurrentUser(userData);
+            setMoviesSaved(dataSavedMovies.filter(m => m.owner === userData._id));
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
 
   // обновить значение фильтра короткометражек
   const handleFilterCheckbox = (isChecked) => {
@@ -246,10 +246,18 @@ function App() {
             isUpdateDone={isUpdateDone}
           />
           <Route path="/signin">
-            <Login onLogin={handleLogin} isErrorRespose={isErrorRespose} />
+            {loggedIn ?
+              <Redirect to="/" />
+              :
+              <Login onLogin={handleLogin} isErrorRespose={isErrorRespose} />
+            }
           </Route>
           <Route path="/signup">
-            <Register onRegister={handleRegister} isErrorRespose={isErrorResposeRegister} />
+            {loggedIn ?
+              <Redirect to="/" />
+              :
+              <Register onRegister={handleRegister} isErrorRespose={isErrorResposeRegister} />
+            }
           </Route>
           <Route path="*">
             <NotFoundPage />
