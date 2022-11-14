@@ -10,7 +10,7 @@
 - валидация форм.
 
 **Ссылка на проект:**
-- ссылка на фронтенд проекта: https://kepova.nomoredomains.sbsgithub.com,
+- ссылка на фронтенд проекта: https://kepova.nomoredomains.sbs,
 - бэкенд проекта находится [тут](https://github.com/Kepova/movies-explorer-api),
 - [ссылка на макет](https://disk.yandex.ru/d/Js1PWc0dSh-uyQ).
 
